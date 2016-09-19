@@ -34,6 +34,7 @@ class Book extends Model
 
     /**
      * Save cover for this book
+     * 
      * @param  Request $request
      * @return Image
      */
