@@ -5,17 +5,17 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Tag</div>
+                <div class="panel-heading">Edit Author</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/tags/add') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/authors/edit/' . $author->id) }}">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                             <label for="name" class="col-md-2 control-label">Name</label>
 
                             <div class="col-md-5">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $author->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -29,7 +29,7 @@
                             <label for="description" class="col-md-2 control-label">Description</label>
 
                             <div class="col-md-5">
-                                <textarea id="description" class="form-control" name="description" required>{{ old('description') }}</textarea>
+                                <textarea id="description" class="form-control" name="description" required>{{ $author->description }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">
@@ -42,8 +42,8 @@
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-5">
 
-                                <button type="submit" class="btn btn-primary">Add</button>
-                                <a href="{{ url('/tags') }}" class="btn">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a href="{{ url('/authors') }}" class="btn">Cancel</a>
                             </div>
                         </div>
                     </form>

@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Tags</div>
+                <div class="panel-heading">Authors</div>
 
                 <div class="panel-body">
-                    <a href="{{ url('/tags/add') }}" class="btn btn-primary">Add Tag</a>
+                    <a href="{{ url('/authors/add') }}" class="btn btn-primary">Add Author</a>
 
                     @if (session('success'))
                         <div class="alert alert-success">
@@ -16,12 +16,12 @@
                         </div>
                     @endif
 
-                    @if (!count($tags))
-                        <p class="no-items">Add your first tag.</p>
+                    @if (!count($authors))
+                        <p class="no-items">Add your first author.</p>
                     @endif
                 </div>
 
-                @if (count($tags))
+                @if (count($authors))
                 	<div class="table-responsive">
 	                    <table class="table table-striped">
 	                        <thead>
@@ -33,14 +33,14 @@
 	                        </thead>
 
 	                        <tbody>
-	                        	@foreach ($tags as $tag)
+	                        	@foreach ($authors as $author)
 	                        		<tr>
-	                        			<td>{{ $tag->name }}</td>
-	                        			<td>{{ $tag->description }}</td>
+	                        			<td>{{ $author->name }}</td>
+	                        			<td>{{ $author->description }}</td>
 	                        			<td>
                                             <div class="btn-group">
-    	                        				<a href="{{ url('/tags/edit/' . $tag->id) }}" class="btn btn-sm btn-default">Edit</a>
-    	                        				<a href="{{ url('/tags/delete/' . $tag->id) }}" class="delete-btn btn btn-sm btn-danger">Delete</a>
+    	                        				<a href="{{ url('/authors/edit/' . $author->id) }}" class="btn btn-sm btn-default">Edit</a>
+    	                        				<a href="{{ url('/authors/delete/' . $author->id) }}" class="delete-btn btn btn-sm btn-danger">Delete</a>
                                             </div>
 	                        			</td>
 	                        		</tr>

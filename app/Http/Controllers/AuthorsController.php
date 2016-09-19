@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tag;
+use App\Author;
 
-class TagsController extends Controller
+class AuthorsController extends Controller
 {
     /**
-     * Show tags view.
+     * Show authors view.
      *
      * @return \Illuminate\Http\Response
      */
     public function showIndexView()
     {
-        $tags = Tag::all();
+        $authors = Author::all();
 
-        return view('tags.index', [
-            'tags' => $tags
+        return view('authors.index', [
+            'authors' => $authors
         ]);
     }
 
@@ -28,7 +28,7 @@ class TagsController extends Controller
      */
     public function showAddView()
     {
-        return view('tags.add');
+        return view('authors.add');
     }
 
     /**
@@ -39,15 +39,15 @@ class TagsController extends Controller
      */
     public function showEditView($id)
     {
-        $tag = Tag::findOrFail($id);
+        $author = Author::findOrFail($id);
 
-        return view('tags.edit', [
-            'tag' => $tag
+        return view('authors.edit', [
+            'author' => $author
         ]);
     }
 
     /**
-     * Add a new tag.
+     * Add a new author.
      * 
      * @param Request $request
      * @return Response
@@ -59,16 +59,16 @@ class TagsController extends Controller
             'description'  => 'required'
         ]);
 
-        $tag = new Tag;
-        $tag->name        = $request->name;
-        $tag->description = $request->description;
-        $tag->save();
+        $author = new Author;
+        $author->name        = $request->name;
+        $author->description = $request->description;
+        $author->save();
 
-        return redirect('/tags')->with('success', 'Tag added.');
+        return redirect('/authors')->with('success', 'Author added.');
     }
 
     /**
-     * Edit tag.
+     * Edit author.
      * 
      * @param Request $request
      * @return Response
@@ -80,27 +80,31 @@ class TagsController extends Controller
             'description'  => 'required'
         ]);
 
-        $tag = Tag::find($id);
-        $tag->name        = $request->name;
-        $tag->description = $request->description;
-        $tag->save();
+        $author = Author::find($id);
+        $author->name        = $request->name;
+        $author->description = $request->description;
+        $author->save();
 
-        return redirect('/tags')->with('success', 'Tag edited.');
+        return redirect('/authors')->with('success', 'Author edited.');
     }
 
     /**
-     * Delete tag.
+     * Delete author.
      * 
      * @param Request $request
      * @return Response
      */
     public function delete(Request $request, $id)
     {
-        $tag = Tag::find($id);
+        $author = Author::find($id);
 
-        $tag->books()->detach();
-        $tag->delete();
+        foreach ($author->books as $book) {
+            $book->tags()->detach();
+            $book->delete();
+        }
+        
+        $author->delete();
 
-        return redirect('/tags')->with('success', 'Tag deleted.');
+        return redirect('/authors')->with('success', 'Author deleted.');
     }
 }

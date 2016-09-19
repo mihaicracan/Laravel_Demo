@@ -5,20 +5,20 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Book;
 
-class Tag extends Model
+class Author extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'tags';
+    protected $table = 'authors';
 
     /**
-     * The books that belong to the tag.
+     * Get the books for the author.
      */
     public function books()
     {
-        return $this->belongsToMany('App\Book', 'book_tag', 'id_tag', 'id_book');
+        return $this->hasMany('App\Book', 'id_author');
     }
 }

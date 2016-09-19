@@ -8,10 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Library') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://davidstutz.github.io/bootstrap-multiselect/dist/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
 
     <!-- Scripts -->
     <script>
@@ -21,6 +23,21 @@
     </script>
 </head>
 <body>
+    <div id="modal-delete" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>Are you sure you want to delete this item?</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-danger">Delete</a>
+                    <div class="btn btn-default" data-dismiss="modal">Close</div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -35,7 +52,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Library') }}
                 </a>
             </div>
 
@@ -84,6 +101,10 @@
     @yield('content')
 
     <!-- Scripts -->
+    <script src="/js/bootstrap.js"></script>
+    <script src="http://davidstutz.github.io/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>

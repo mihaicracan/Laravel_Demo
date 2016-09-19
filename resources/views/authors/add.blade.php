@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Tag</div>
+                <div class="panel-heading">Add Author</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/tags/add') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/authors/add') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -43,7 +43,7 @@
                             <div class="col-sm-offset-2 col-sm-5">
 
                                 <button type="submit" class="btn btn-primary">Add</button>
-                                <a href="{{ url('/tags') }}" class="btn">Cancel</a>
+                                <a href="{{ url('/authors') }}" class="btn">Cancel</a>
                             </div>
                         </div>
                     </form>
