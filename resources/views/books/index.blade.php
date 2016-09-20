@@ -63,10 +63,10 @@
 	                    <table class="table table-striped">
 	                        <thead>
 	                        	<tr>
-                                    <th>Cover</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-	                        		<th>Tags</th>
+                                    <th width="125">Cover</th>
+                                    <th width="150">Title</th>
+                                    <th width="130">Author</th>
+	                        		<th width="120">Tags</th>
 	                        		<th>Description</th>
 	                        		<th width="230" class="text-center">Actions</th>
 	                        	</tr>
