@@ -1,6 +1,9 @@
+// Base
+$border-radius-base: 2px;
+$gray-base: #555;
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: #F5F8FA;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -17,21 +20,34 @@ $brand-warning: #cbb956;
 $brand-danger:  #bf5329;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Open Sans", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 
 // Navbar
 $navbar-default-bg: #fff;
+$navbar-height: 70px;
 
 // Buttons
 $btn-default-color: $text-color;
+$btn-border-radius-base: 2px;
+$btn-primary-bg: #37ACE1;
+$btn-primary-border: #37ACE1;
 
 // Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+$input-bg: #fafafa;
+$input-border: darken($input-bg, 8%);
+$input-border-focus: darken($input-bg, 10%);
+$input-color-placeholder: lighten($input-bg, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+$panel-heading-padding: 0px 20px 5px 20px;
+$panel-default-border: none;
+
+// Modal
+$modal-header-border-color: #fff;
+
+// Tables
+$table-border-color: #fff;

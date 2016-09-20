@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Author</div>
+                <div class="panel-heading"><h3>Edit Author</h3></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/authors/edit/' . $author->id) }}">

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Tags</div>
+                <div class="panel-heading"><h3>Tags</h3></div>
 
                 <div class="panel-body">
                     <a href="{{ url('/tags/add') }}" class="btn btn-primary">Add Tag</a>
@@ -28,7 +28,7 @@
 	                        	<tr>
 	                        		<th>Name</th>
 	                        		<th>Description</th>
-	                        		<th width="170">Actions</th>
+	                        		<th width="170" class="text-center">Actions</th>
 	                        	</tr>
 	                        </thead>
 
@@ -37,7 +37,7 @@
 	                        		<tr>
 	                        			<td>{{ $tag->name }}</td>
 	                        			<td>{{ $tag->description }}</td>
-	                        			<td>
+	                        			<td class="text-center">
                                             <div class="btn-group">
     	                        				<a href="{{ url('/tags/edit/' . $tag->id) }}" class="btn btn-sm btn-default">Edit</a>
     	                        				<a href="{{ url('/tags/delete/' . $tag->id) }}" class="delete-btn btn btn-sm btn-danger">Delete</a>

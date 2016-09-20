@@ -42,7 +42,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Books</div>
+                <div class="panel-heading"><h3>Books</h3></div>
 
                 <div class="panel-body">
                     <a href="{{ url('/books/add') }}" class="btn btn-primary">Add Book</a>
@@ -68,7 +68,7 @@
                                     <th>Author</th>
 	                        		<th>Tags</th>
 	                        		<th>Description</th>
-	                        		<th width="230">Actions</th>
+	                        		<th width="230" class="text-center">Actions</th>
 	                        	</tr>
 	                        </thead>
 
@@ -94,7 +94,7 @@
                                             @endforeach
                                         </td>
 	                        			<td>{{ $book->description }}</td>
-	                        			<td>
+	                        			<td class="text-center">
                                             <div class="btn-group">
     	                        				<a href="{{ url('/books/edit/' . $book->id) }}" class="btn btn-sm btn-default">Edit</a>
                                                 @if ($book->rented)

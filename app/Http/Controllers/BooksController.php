@@ -76,7 +76,8 @@ class BooksController extends Controller
             'title' => 'required',
             'author' => 'required',
             'tags' => 'required',
-            'description'  => 'required'
+            'description'  => 'required',
+            'cover' => 'mimes:jpeg,jpg,png,gif|required|max:4096'
         ]);
 
         $book = new Book;

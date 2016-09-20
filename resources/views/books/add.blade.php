@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Book</div>
+                <div class="panel-heading"><h3>Add Book</h3></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/books/add') }}" enctype="multipart/form-data">
@@ -75,15 +75,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('cover') ? 'has-error' : '' }}">
                             <label for="cover" class="col-md-2 control-label">Cover</label>
 
                             <div class="col-md-5">
                                 <input type="file" name="cover" id="cover">
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('cover'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
+                                        <strong>{{ $errors->first('cover') }}</strong>
                                     </span>
                                 @endif
                             </div>
