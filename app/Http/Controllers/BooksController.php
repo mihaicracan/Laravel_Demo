@@ -70,16 +70,8 @@ class BooksController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function add(Request $request)
+    public function add(AddBookRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'author' => 'required',
-            'tags' => 'required',
-            'description'  => 'required',
-            'cover' => 'mimes:jpeg,jpg,png,gif|required|max:4096'
-        ]);
-
         $book = new Book;
 
         $book->title       = $request->title;
@@ -102,15 +94,8 @@ class BooksController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit(Request $request, $id)
+    public function edit(EditBookRequest $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'author' => 'required',
-            'tags' => 'required',
-            'description'  => 'required'
-        ]);
-
         $book = Book::find($id);
         $book->title       = $request->title;
         $book->id_author   = $request->author;

@@ -52,13 +52,8 @@ class AuthorsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function add(Request $request)
+    public function add(AddAuthorRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description'  => 'required'
-        ]);
-
         $author = new Author;
         $author->name        = $request->name;
         $author->description = $request->description;
@@ -73,13 +68,8 @@ class AuthorsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function edit(Request $request, $id)
+    public function edit(EditAuthorRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description'  => 'required'
-        ]);
-
         $author = Author::find($id);
         $author->name        = $request->name;
         $author->description = $request->description;

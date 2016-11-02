@@ -52,13 +52,8 @@ class TagsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function add(Request $request)
+    public function add(AddTagRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description'  => 'required'
-        ]);
-
         $tag = new Tag;
         $tag->name        = $request->name;
         $tag->description = $request->description;
@@ -73,13 +68,8 @@ class TagsController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function edit(Request $request, $id)
+    public function edit(EditTagRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'description'  => 'required'
-        ]);
-
         $tag = Tag::find($id);
         $tag->name        = $request->name;
         $tag->description = $request->description;
